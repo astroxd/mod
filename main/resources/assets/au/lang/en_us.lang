@@ -1,0 +1,23 @@
+container.fuel_mixer_i=Fuel Mixer I
+
+item.burnt_charcoal.name=Burnt Charcoal
+item.blazed_burnt_coal.name=Blazed burnt coal
+item.unrefined_hexamine.name=Unrefined Hexamine
+item.organic_charcoal.name=Organic Charcoal
+item.mixed_charcoal.name=Mixed Charcoal
+item.burnt_coal.name=Burnt Coal
+item.fuel_crystal.name=Fuel Crystal
+item.xanderite_dust.name=Xanderite Dust
+item.xanderite_ingot.name=Xanderite Ingot
+item.burnt_mixed_charcoal.name=Burnt Mixed Charcoal
+item.hexamine_ingot.name=Hexamine Ingot
+
+
+tile.hexamine_block.name=Hexamine Block
+tile.xanderite_block.name=Xanderite Block
+tile.fuel_crystal_ore.name=Fuel Crystal Ore
+tile.xanderite_ore.name=Xanderite Ore
+tile.fuel_mixer_i.name=Fuel Mixer I
+
+itemGroup.a_str0utilitiesitemtab= a_str0 Utilities Item
+

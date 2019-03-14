@@ -1,0 +1,14 @@
+{
+    "variants":
+    {
+        "burning=false,facing=north": {"model": "au:fuel_mixer_i"},
+        "burning=false,facing=east": {"model": "au:fuel_mixer_i", "y": 90},
+        "burning=false,facing=south": {"model": "au:fuel_mixer_i", "y": 180},
+        "burning=false,facing=west": {"model": "au:fuel_mixer_i", "y": 270},
+        "burning=true,facing=north": {"model": "au:lit_fuel_mixer_i" },
+        "burning=true,facing=east": {"model": "au:lit_fuel_mixer_i", "y": 90},
+        "burning=true,facing=south": {"model": "au:lit_fuel_mixer_i", "y": 180},
+        "burning=true,facing=west": {"model": "au:lit_fuel_mixer_i", "y": 270}
+    }
+}        
+        

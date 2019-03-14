@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+   
+    "pattern":
+    [
+        "HHH",
+        "HHH",
+        "HHH"
+    ],
+   
+    "key":
+    {
+        "H":
+        {
+            "item": "au:hexamine_ingot"
+        }
+    },
+   
+    "result":
+    {
+        "item": "au:hexamine_block",
+        "count": 1
+    }
+}

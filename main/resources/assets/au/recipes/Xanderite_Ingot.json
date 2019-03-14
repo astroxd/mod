@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients":
+    [
+ 
+    {
+      "item": "au:xanderite_block"
+    }
+ 
+    ],
+ 
+    "result":
+    {
+        "item": "au:xanderite_ingot",
+        "count": 9
+    }
+}

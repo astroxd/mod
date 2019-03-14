@@ -1,0 +1,16 @@
+[
+{
+  "modid": "au",
+  "name": "a_str0 Utilities",
+  "description": "A fuel mod.",
+  "version": "1.0",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["a_str0"],
+  "credits": "Me",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

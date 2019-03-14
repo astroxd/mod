@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+   
+    "pattern":
+    [
+        "XXX",
+        "XXX",
+        "XXX"
+    ],
+   
+    "key":
+    {
+        "X":
+        {
+            "item": "au:xanderite_ingot"
+        }
+    },
+   
+    "result":
+    {
+        "item": "au:xanderite_block",
+        "count": 1
+    }
+}
