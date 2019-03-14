@@ -22,6 +22,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.items.ItemStackHandler;
@@ -47,10 +49,8 @@ public class BlockFuelMixerI extends BlockBase implements ITileEntityProvider
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
 	{
-		if (!worldIn.isRemote)
-		{
-			playerIn.openGui(Main.instance, Reference.GUI_FUEL_MIXER_I, worldIn, pos.getX(), pos.getY(), pos.getZ());
-		}
+		playerIn.openGui(Main.instance, Reference.GUI_FUEL_MIXER_I, worldIn, pos.getX(), pos.getY(), pos.getZ());
+		
 		
 		return true;
 	}
@@ -120,4 +120,39 @@ public class BlockFuelMixerI extends BlockBase implements ITileEntityProvider
 	{
 		return new TileFuelMixerI();
 	}
+	
+	@Override
+	public int getMetaFromState(IBlockState state)
+	    {
+	        return ((EnumFacing)state.getValue(FACING)).getIndex();
+	    }
+	
+	
+	@Override
+	public IBlockState getStateFromMeta(int meta)
+    {
+        EnumFacing enumfacing = EnumFacing.getFront(meta);
+
+        if (enumfacing.getAxis() == EnumFacing.Axis.Y)
+        {
+            enumfacing = EnumFacing.NORTH;
+        }
+
+        return this.getDefaultState().withProperty(FACING, enumfacing);
+    }
+	
+	@Override
+	public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
+    {
+        return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
+    }
+
+    
+    public IBlockState withRotation(IBlockState state, Rotation rot)
+    {
+        return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
+    }
+
 }
+
+
