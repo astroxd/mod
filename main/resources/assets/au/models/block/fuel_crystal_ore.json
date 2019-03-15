@@ -1,0 +1,6 @@
+{
+   "parent": "block/cube_all",
+   "textures": {
+       "all": "au:blocks/fuel_crystal_ore"
+   }
+}

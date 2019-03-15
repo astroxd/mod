@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+   
+    "pattern":
+    [
+        " B ",
+        "BCB",
+        " B "
+    ],
+	"key":
+    {
+        "B":
+        {
+            "item": "minecraft:blaze_powder"
+        },
+        "C":
+        {
+            "item": "au:burnt_coal"
+        }
+    },
+    
+   
+    "result":
+    {
+        "item": "au:blazed_burnt_coal",
+        "count": 1
+    }
+}
