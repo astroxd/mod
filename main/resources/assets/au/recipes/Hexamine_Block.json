@@ -3,9 +3,9 @@
    
     "pattern":
     [
-        "HHH",
-        "HHH",
-        "HHH"
+        "OOO",
+        "OHO",
+        "OOO"
     ],
    
     "key":
@@ -15,6 +15,10 @@
             "item": "au:hexamine_ingot"
         }
     },
+	"O":
+	{
+	    "item": "au:organic_charcoal"
+	},
    
     "result":
     {

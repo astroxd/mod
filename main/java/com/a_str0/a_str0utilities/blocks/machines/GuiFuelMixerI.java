@@ -5,54 +5,70 @@ import com.a_str0.a_str0utilities.util.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiFuelMixerI extends GuiContainer
 {
-	private static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MOD_ID + ":textures/gui/fuel_mixeri_i.png");
-	private final InventoryPlayer player;
-	private final TileFuelMixerI tileEntity;
+	private static final ResourceLocation FUEL_MIXER_I_GUI_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/gui/fuel_mixer_i.png");
+    private final InventoryPlayer playerInventory;
+    private final IInventory tileFuelMixerI;
 	
-	public GuiFuelMixerI(InventoryPlayer player, TileFuelMixerI tileEntity)
-	{
-		super(new ContainerFuelMixerI(player, tileEntity));
-		this.player = player;
-		this.tileEntity = tileEntity;
-	}
+    public GuiFuelMixerI(InventoryPlayer playerInv, IInventory fuelMixerIInv)
+    {
+        super(new ContainerFuelMixerI(playerInv, fuelMixerIInv));
+        this.playerInventory = playerInv;
+        this.tileFuelMixerI = fuelMixerIInv;
+    }
 	
-	@Override
-	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
-	{
-		String tileName = this.tileEntity.getDisplayName().getUnformattedText();
-		this.fontRenderer.drawString(tileName, (this.xSize/2 - this.fontRenderer.getStringWidth(tileName)/2), 8, 4210752);
-		this.fontRenderer.drawString(this.player.getDisplayName().getUnformattedText(), 8, this.ySize-96+2, 4210752);
-	}
-	
-	@Override
-	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
-	{
-		this.drawDefaultBackground();
-		
-		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.getTextureManager().bindTexture(TEXTURES);
-		this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
-		
-		int cookProgScaled = this.getCookProgressScaled(24);
-		this.drawTexturedModalRect(this.guiLeft + 79, this.guiTop + 34, 176, 14, cookProgScaled+1, 16);
-	}
-	
-	private int getCookProgressScaled(int pixels)
-	{
-		int currCookProg = this.tileEntity.getCookProgress();
-		int totalCookTime = this.tileEntity.getTotalCookTime();
-		
-		if (totalCookTime != 0 && currCookProg != 0)
-		{
-			return currCookProg*pixels/totalCookTime;
-		}
-		else
-		{
-			return 0;
-		}
-	}
+    public void drawScreen(int mouseX, int mouseY, float partialTicks)
+    {
+        this.drawDefaultBackground();
+        super.drawScreen(mouseX, mouseY, partialTicks);
+        this.renderHoveredToolTip(mouseX, mouseY);
+    }
+    
+    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
+    {
+        String s = this.tileFuelMixerI.getDisplayName().getUnformattedText();
+        this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
+        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
+    }
+    
+    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
+    {
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        this.mc.getTextureManager().bindTexture(FUEL_MIXER_I_GUI_TEXTURE);
+        int i = (this.width - this.xSize) / 2;
+        int j = (this.height - this.ySize) / 2;
+        this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
+
+        if (TileEntityFuelMixerI.isBurning(this.tileFuelMixerI))
+        {
+            int k = this.getBurnLeftScaled(13);
+            this.drawTexturedModalRect(i + 56, j + 36 + 12 - k, 176, 12 - k, 14, k + 1);
+        }
+
+        int l = this.getCookProgressScaled(24);
+        this.drawTexturedModalRect(i + 79, j + 34, 176, 14, l + 1, 16);
+    }
+
+    private int getCookProgressScaled(int pixels)
+    {
+        int i = this.tileFuelMixerI.getField(2);
+        int j = this.tileFuelMixerI.getField(3);
+        return j != 0 && i != 0 ? i * pixels / j : 0;
+    }
+
+    private int getBurnLeftScaled(int pixels)
+    {
+        int i = this.tileFuelMixerI.getField(1);
+
+        if (i == 0)
+        {
+            i = 200;
+        }
+
+        return this.tileFuelMixerI.getField(0) * pixels / i;
+    }
 }

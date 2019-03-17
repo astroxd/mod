@@ -57,8 +57,59 @@ public class RegistryHandler
 
 	
 	}
-	public static void initRegisties() 
+	public static void initRegistries() 
 	{
 		NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
+	}
+
+
+	@SubscribeEvent
+	public static void furnaceFuelBurnTime(FurnaceFuelBurnTimeEvent event)
+	{
+		if(event.getItemStack().getItem() == (ModItems.BURNT_CHARCOAL))
+		{
+			event.setBurnTime(2400);
+		}
+		if(event.getItemStack().getItem() == (ModItems.BLAZED_BURNT_COAL))
+	    {
+	        event.setBurnTime(12800);
+	    }
+		if(event.getItemStack().getItem() == (ModItems.BURNT_COAL))
+	    {
+	        event.setBurnTime(2400);
+	    }
+		if(event.getItemStack().getItem() == (ModItems.BURNT_MIXED_CHARCOAL))
+	    {
+	        event.setBurnTime(16000);
+	    }
+		if(event.getItemStack().getItem() == (ModItems.FUEL_CRYSTAL))
+	    {
+	        event.setBurnTime(6400);
+	    }
+		if(event.getItemStack().getItem() == (ModItems.HEXAMINE_INGOT))
+	    {
+	        event.setBurnTime(52000);
+	    }
+		if(event.getItemStack().getItem() == (ModItems.ORGANIC_CHARCOAL))
+	    {
+	        event.setBurnTime(800);
+	    }
+		if(event.getItemStack().getItem() == (ModItems.UNREFINED_HEXAMINE))
+	    {
+	        event.setBurnTime(36000);
+	    }
+		if(event.getItemStack().getItem() == (ModItems.XANDERITE_INGOT))
+	    {
+	        event.setBurnTime(24000);
+	    }
+		if(event.getItemStack().getItem() == (ModItems.MIXED_CHARCOAL))
+	    {
+	        event.setBurnTime(14000);
+	    }
+		if(event.getItemStack().getItem() == Item.getItemFromBlock(ModBlocks.HEXAMINE_BLOCK))
+	    {
+	        event.setBurnTime(58400);
+	    }
+	
 	}
 }

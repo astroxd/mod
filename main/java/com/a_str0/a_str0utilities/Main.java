@@ -4,6 +4,7 @@ import com.a_str0.a_str0utilities.init.ModRecipies;
 import com.a_str0.a_str0utilities.proxy.CommonProxy;
 import com.a_str0.a_str0utilities.tabs.ItemTab;
 import com.a_str0.a_str0utilities.util.Reference;
+import com.a_str0.a_str0utilities.util.handlers.RegistryHandler;
 import com.a_str0.a_str0utilities.world.ModWorldGen;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -36,6 +37,7 @@ public class Main {
 	public static void init(FMLInitializationEvent event)
 	{
 		ModRecipies.init();
+		RegistryHandler.initRegistries();
 	}
 	
 	@EventHandler
