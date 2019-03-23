@@ -23,6 +23,6 @@ public class ModBlocks
 	public static final Block XANDERITE_ORE = new XanderiteOre("xanderite_ore", Material.ROCK);
 	
 
-	public static final Block FUEL_MIXER_I_OFF = new BlockFuelMixerI("fuel_mixer_i_off", false);
-	public static final Block FUEL_MIXER_I_ON = new BlockFuelMixerI("fuel_mixer_i_on", true);
+	public static final Block FUEL_MIXER_I = new BlockFuelMixerI("fuel_mixer_i_");
+	
 }
