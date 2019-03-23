@@ -9,6 +9,7 @@ import com.a_str0.a_str0utilities.blocks.HexamineBlock;
 import com.a_str0.a_str0utilities.blocks.XanderiteBlock;
 import com.a_str0.a_str0utilities.blocks.XanderiteOre;
 import com.a_str0.a_str0utilities.blocks.machines.BlockFuelMixerI;
+import com.a_str0.a_str0utilities.blocks.machines.BlockFuelSintetizer;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -24,5 +25,6 @@ public class ModBlocks
 	
 
 	public static final Block FUEL_MIXER_I = new BlockFuelMixerI("fuel_mixer_i_");
+	public static final Block FUEL_SINTETIZER = new BlockFuelSintetizer("fuel_sintetizer");
 	
 }

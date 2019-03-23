@@ -11,6 +11,7 @@ public class Reference {
 	
 
 	public static final int GUI_FUEL_MIXER_I = 0;
+	public static final int GUI_FUEL_SINTETIZER = 0;
 
 }
 

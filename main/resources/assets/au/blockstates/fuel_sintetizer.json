@@ -1,0 +1,29 @@
+{
+    "variants": 
+    {
+        "facing=up": 
+        { 
+            "model": "au:fuel_sintetizer" 
+        },
+    
+        "facing=south": 
+        { 
+            "model": "au:fuel_sintetizer","y":180 
+        },
+    
+        "facing=east": 
+        { 
+            "model": "au:fuel_sintetizer","y":90 
+        },
+    
+        "facing=west": 
+        { 
+            "model": "au:fuel_sintetizer","y":270 
+        },
+    
+        "facing=north": 
+        { 
+            "model": "au:fuel_sintetizer" 
+        }
+    }
+}
